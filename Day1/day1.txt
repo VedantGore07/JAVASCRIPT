@@ -1,0 +1,14 @@
+// to make the web page interactive
+// in 1995 Brendan Eich Mocha  livescript   javascript
+// ECMASCRIPT
+// v8 engine
+// Node.js --> open source , runtime environment
+// run js outside the browser
+
+// identifiers --> It can be used for variables, functions, classes, objects.
+// dynamically typed language
+
+// Global variable, local variable
+// datatypes -> 
+        primitive --> number, string, boolean, 
+        non primitive --> array, object, functions

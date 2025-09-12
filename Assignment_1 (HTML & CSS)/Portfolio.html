@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Home -->
+  <section id="home">
+    <img src="./Ved_img.jpeg" alt="Profile Picture">
+    <h1>Vedant Gore</h1>
+    <p>Java | Spring Boot | MERN Stack | PostgreSQL | JUnit | JMeter</p>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>“I’m Vedant Gore, a Full Stack Developer specializing in Java, Spring Boot, MERN stack, and PostgreSQL. With strong skills in JUnit and JMeter testing, I focus on building scalable, reliable, and efficient applications.”</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <table>
+      <tr>
+        <th>Frontend</th>
+        <th>Backend</th>
+        <th>Database</th>
+      </tr>
+      <tr>
+        <td>HTML, CSS, JavaScript</td>
+        <td>Java, Node.js</td>
+        <td>MySQL, MongoDB</td>
+      </tr>
+      <tr>
+        <td>React.js</td>
+        <td>Spring Boot, Express.js</td>
+        <td>PostgreSQL</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>Personal Portfolio Website</li>
+      <li>E-commerce Web Application</li>
+      <li>Royal Patil Farm</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="country">Country</label>
+      <select id="country">
+        <option>India</option>
+        <option>USA</option>
+        <option>UK</option>
+        <option>Canada</option>
+        <option>Other</option>
+      </select>
+
+      <label>Gender</label>
+      <input type="radio" name="gender" value="male"> Male
+      <input type="radio" name="gender" value="female"> Female
+      <input type="radio" name="gender" value="other"> Other
+
+      <label>Skills</label>
+      <input type="checkbox"> HTML
+      <input type="checkbox"> CSS
+      <input type="checkbox"> JavaScript
+      <input type="checkbox"> Java
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" placeholder="Write your message"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+</body>
+</html>
