@@ -61,77 +61,102 @@
 
 // write js code to check number is even or odd
 
-let num = 5;
-if(num % 2 == 0){
-    console.log("even");
-}else{
-    console.log("odd");  
-}
+// let num = 5;
+// if(num % 2 == 0){
+//     console.log("even");
+// }else{
+//     console.log("odd");  
+// }
 
 
 // check given year is leap year or not
 
-let year = 2025;
-if (year % 4 === 0) {
-  if (year % 100 === 0) {
-    if (year % 400 === 0) {
-      console.log(year + " is a Leap Year");
-    } else {
-      console.log(year + " is NOT a Leap Year");
-    }
-  } else {
-    console.log(year + " is a Leap Year");
-  }
-} else {
-  console.log(year + " is NOT a Leap Year");
-}
+// let year = 2025;
+// if (year % 4 === 0) {
+//   if (year % 100 === 0) {
+//     if (year % 400 === 0) {
+//       console.log(year + " is a Leap Year");
+//     } else {
+//       console.log(year + " is NOT a Leap Year");
+//     }
+//   } else {
+//     console.log(year + " is a Leap Year");
+//   }
+// } else {
+//   console.log(year + " is NOT a Leap Year");
+// }
 
 
 // check for age
 
-let age = 21;
+// let age = 21;
 
-if (age >= 0 && age <= 12) {
-    console.log("Child");
-} else if (age >= 13 && age <= 19) {
-    console.log("Teen");
-} else if (age >= 20 && age <= 59) {
-    console.log("Adult");
-} else  {
-    console.log("Senior Citizen");
-} 
+// if (age >= 0 && age <= 12) {
+//     console.log("Child");
+// } else if (age >= 13 && age <= 19) {
+//     console.log("Teen");
+// } else if (age >= 20 && age <= 59) {
+//     console.log("Adult");
+// } else  {
+//     console.log("Senior Citizen");
+// } 
 
 
 // salary calculator
 
-let salary = 75000
-let bonus;
+// let salary = 75000
+// let bonus;
 
-if (salary <= 20000) {
-  bonus = salary * 0.10;
-} else if (salary <= 50000) {
-  bonus = salary * 0.15;
-} else if (salary <= 100000) {
-  bonus = salary * 0.20;
-} else {
-  bonus = salary * 0.25;
+// if (salary <= 20000) {
+//   bonus = salary * 0.10;
+// } else if (salary <= 50000) {
+//   bonus = salary * 0.15;
+// } else if (salary <= 100000) {
+//   bonus = salary * 0.20;
+// } else {
+//   bonus = salary * 0.25;
+// }
+
+
+
+
+// ********************************************************
+
+
+// let num1 = 10;
+// let num2 = 1;
+
+// let num3 = ++num2 || num1++;
+
+// console.log(num1);
+// console.log(num2);
+// console.log(num3);
+
+
+//                     bitwise operators
+
+// console.log(3 & 4);
+
+
+// even or odd
+
+function isEven(num) {
+  return (num & 1) == 0;
 }
 
+console.log(isEven(4)); 
+console.log(isEven(7))
 
 
+// swap 2 values without using 3 variables
 
+let a = 5, b = 7;
 
+a = a ^ b; // a = 5 ^ 7
+b = a ^ b; // b = (5 ^ 7) ^ 7 = 5
+a = a ^ b; // a = (5 ^ 7) ^ 5 = 7
 
-
-
-
-
-
-
-
-
-
-
+console.log("a:", a, "b:", b); 
 
 
 
