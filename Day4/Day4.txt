@@ -1,0 +1,49 @@
+// Functions --> block of code designed to perform specific task
+// advantages --> readability , moularity, reusability , maintainability
+
+// Usecases
+// To perform mathematical calculations
+//validations
+// event handling 
+// code reuse
+
+// functions --> user defined and buil-tin (alert)
+
+// Syntax 
+
+// function name(){
+//      body
+// }
+
+
+
+When does a function execute?
+
+1. when it is called from js code2. 
+2. when an event occurs
+3. self invoked functions
+
+Immediately invoked functions
+
+// (function greet(){
+//     console.log("Hello");
+// })();
+
+
+
+variables scope --> scope till the variable is acessible
+
+
+parameters  --> placeholders defined 
+
+pass by value and pass by refference
+
+
+
+
+
+
+
+
+
+
