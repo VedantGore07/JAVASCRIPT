@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project</title>
+</head>
+<body>
+    <h1>Console Based Student Management System</h1>
+
+    <script>
+        let students = [];
+
+        function addstudent() {
+            let id = prompt("Enter Student ID:");
+            let name = prompt("Enter Student Name:");
+            let age = parseInt(prompt("Enter Student Age:"));
+            let marks = parseFloat(prompt("Enter Student Marks:"));
+            let student = { id, name, age, marks };
+            students.push(student);
+            console.log(`Student ${name} added successfully!`);
+        }
+
+        function displayStudents() {
+            if(students.length === 0){
+                console.log("No students available.");
+                return;
+            }
+            console.log("Student List:");
+            students.forEach(s => {
+                console.log(`ID: ${s.id}, Name: ${s.name}, Age: ${s.age}, Marks: ${s.marks}`);
+            });
+        }
+
+        function updatestudent() {
+            let id = prompt("Enter Student ID to update:");
+            let student = students.find(s => s.id === id);
+            if(student) {
+                student.name = prompt("Enter new Name:", student.name);
+                student.age = parseInt(prompt("Enter new Age:", student.age));
+                student.marks = parseFloat(prompt("Enter new Marks:", student.marks));
+                console.log(`Student ${student.name} updated successfully!`);
+            } else {
+                console.log("Student not found!");
+            }
+        }
+
+        function deletestudent() {
+            let id = prompt("Enter Student ID to delete:");
+            let index = students.findIndex(s => s.id === id);
+            if(index != -1){
+                let removed = students.splice(index, 1)[0];
+                console.log(`Student ${removed.name} deleted successfully!`);
+            } else {
+                console.log("Student not found!");
+            }
+        }
+
+        function findTopper() {
+            if(students.length === 0){
+                console.log("No students available.");
+                return;
+            }
+            let topper = students.reduce((max, s) => s.marks > max.marks ? s : max, students[0]);
+            console.log(`Topper: ${topper.name}, Marks: ${topper.marks}`);
+        }
+
+        let choice;
+        do {
+            choice = prompt(
+                "Select an option:\n1. Add Student\n2. Display Students\n3. Update Student\n4. Delete Student\n5. Find Topper\n6. Exit"
+            );
+            switch(choice){
+                case "1": addstudent(); break;
+                case "2": displayStudents(); break;
+                case "3": updatestudent(); break;
+                case "4": deletestudent(); break;
+                case "5": findTopper(); break;
+                case "6": console.log("Exiting... Goodbye!"); break;
+                default: console.log("Invalid choice. Please enter 1-6.");
+            }
+        } while(choice != "6");
+
+    </script>
+</body>
+</html>
