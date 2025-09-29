@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p id="para1" class="p1">Paragraph1</p>
+    <p class="p1">Paragpragp2</p>
+    <p class="p2">Para3</p>
+    <button onclick="changeMe()">Change</button>
+    <script>
+      function changeMe() {
+        const paras = document.getElementsByClassName('p1');
+        for (let i = 0; i < paras.length; i++) {
+          paras[i].style.background = 'blue'
+        }
+      }
+    </script> -->
+
+    <!-- <h1 id='head1' class="heading">Welcome</h1>
+    <h1 class="heading">Hello</h1>
+    <script>
+      let h=document.querySelector('#head1');
+      h.style.background='blue'
+    </script> -->
+
+
+    <!-- <h1 class="heading">Welcome</h1>
+    <h1 class="heading">Hello</h1>
+    <h1 class="heading">Bye</h1>
+    <h1 class="heading2">See you</h1>
+    <script>
+        let h=document.querySelectorAll('.heading');
+        h.forEach(n => n.style.color='yellow')
+    </script>
+  </body> -->
+
+
+  <!-- <p id="para">Paragraph</p>
+  <button id="btn">Change</button>
+  <script>
+    let b = document.getElementById('btn').onclick = function() {
+      document.getElementById('para').textContent = 'new content'
+      alert('hello')
+    };
+  </script> -->
+
+  <p id="para">Paragraph</p>
+  <button id="btn">Hover Me</button>
+  <script>
+    let b = document.getElementById('btn')
+    b.addEventListener('dblclick', () => alert('Double clicked'));
+    b.addEventListener('mouseover', () => b.style.background = 'red');
+    b.addEventListener('mouseout', () => b.style.background = "");
+
+
+  </script>
+</body>
+</html>
