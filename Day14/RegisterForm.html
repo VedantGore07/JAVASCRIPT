@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission Event</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form id="frm">
+        <label>Full Name:</label>
+        <input type="text" id="name" required>
+
+        <label>Age:</label>
+        <input type="number" id="age" required>
+
+        <label>Email:</label>
+        <input type="email" id="email" required>
+
+        <label>Phone Number:</label>
+        <input type="text" id="phone" required>
+
+        <label>Password:</label>
+        <input type="password" id="password" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const form = document.getElementById("frm");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const age = parseInt(document.getElementById("age").value);
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            const name1 = /^[A-Za-z\s]{3,}$/;
+            if (!name1.test(name)) {
+                alert("Name should contain only letters and spaces (min 3 characters).");
+                return;
+            }
+
+            if (isNaN(age) || age < 18 || age > 60) {
+                alert("Age must be a number between 18 and 60.");
+                return;
+            }
+
+            const email1 = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email1.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            const phone1 = /^\d{10}$/;
+            if (!phone1.test(phone)) {
+                alert("Phone number must be 10 digits.");
+                return;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return;
+            }
+
+            alert("Form submitted successfully!\n" +
+                  "Name: " + name); 
+        });
+    </script>
+</body>
+</html>
