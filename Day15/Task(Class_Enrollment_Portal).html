@@ -1,0 +1,172 @@
+<!-- Create a "Course Enrollment Portal" using JavaScript.
+The portal should dynamically populate dropdown menus
+based on user selections, handle form submissions, and display feedback messages.
+The selected department from the first dropdown will determine the available ourses in the secona dropaown. upon or suomission feedback message will appear in the desult area
+If any selections are incomplete, an error message will be shown; otherwise, a success message will confirm the enrollment.
+Departments and Corresponding Courses:
+Computer Science: 
+"Data Structures", "Algorithms", "Web Development"
+Electrical Engineering: "Circuit Analysis", "Digital Electronics", "Machine Design"
+Mechanical Engineering: "Thermodynamics", "Fluid Mechanics", "Machine Design"
+Civil Engineering: "Structural Analysis", "Construction Planning", "Geotechnical Engineering" -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class Enrollment Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      background: #fff;
+      padding: 20px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 320px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 15px;
+      text-align: center;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Welcome to the Class Enrollment Portal</h1>
+    <form id="enrollmentForm">
+      <label for="department">Select Department:</label>
+      <select id="department" name="department">
+        <option value="">--Select Department--</option>
+        <option value="CS">Computer Science</option>
+        <option value="EE">Electrical Engineering</option>
+        <option value="ME">Mechanical Engineering</option>
+        <option value="CE">Civil Engineering</option>
+      </select>
+
+      <label for="course">Select Course:</label>
+      <select id="course" name="course" disabled>
+        <option value="">--Select Course--</option>
+      </select>
+
+      <button type="submit">Enroll</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const departmentCourses = {
+      CS: ["Data Structures", "Algorithms", "Web Development"],
+      EE: ["Circuit Analysis", "Digital Electronics", "Machine Design"],
+      ME: ["Thermodynamics", "Fluid Mechanics", "Machine Design"],
+      CE: ["Structural Analysis", "Construction Planning", "Geotechnical Engineering"]
+    };
+
+    const departmentSelect = document.getElementById("department");
+    const courseSelect = document.getElementById("course");
+    const resultDiv = document.getElementById("result");
+
+    departmentSelect.addEventListener("change", function() {
+      const selectedDepartment = departmentSelect.value;
+      courseSelect.innerHTML = '<option value="">--Select Course--</option>';
+      if (selectedDepartment) {
+        const courses = departmentCourses[selectedDepartment];
+        courses.forEach(course => {
+          const option = document.createElement("option");
+          option.value = course;
+          option.textContent = course;
+          courseSelect.appendChild(option);
+        });
+        courseSelect.disabled = false;
+      } else {
+        courseSelect.disabled = true;
+      }
+    });
+
+    document.getElementById("enrollmentForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const selectedDepartment = departmentSelect.value;
+      const selectedCourse = courseSelect.value;
+      if (!selectedDepartment || !selectedCourse) {
+        resultDiv.textContent = "Please select both a department and a course.";
+        resultDiv.style.color = "red";
+      } else {
+        resultDiv.textContent = `Successfully enrolled in ${selectedCourse} (${selectedDepartment})`;
+        resultDiv.style.color = "green";
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

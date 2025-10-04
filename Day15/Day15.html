@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification Demo</title>
+</head>
+<body>
+  <button onclick="showNotification()">Show Notification</button>
+
+  <script>
+    // Ask for permission when page loads
+    document.addEventListener("DOMContentLoaded", () => {
+      if (Notification.permission !== "granted") {
+        Notification.requestPermission().then(permission => {
+          console.log("Permission status:", permission);
+        });
+      }
+    });
+
+    function showNotification() {
+      if (Notification.permission === 'granted') {
+        new Notification("Hello Learner 👋", {
+          body: "This is your first notification!",
+        });
+      } else {
+        alert('Please allow notifications first');
+      }
+    }
+  </script>
+</body>
+</html>
