@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List with Storage API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    input {
+      padding: 8px;
+      width: 200px;
+      margin: 10px 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 8px 12px;
+      margin: 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result, #keys {
+      margin-top: 20px;
+      padding: 10px;
+      background: white;
+      border: 1px solid #ddd;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      border-radius: 5px;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>To-Do List</h1>
+
+  <input type="text" id="taskInput" placeholder="Enter a task">
+  <br>
+  <button onclick="saveTask()">Save Task</button>
+  <button onclick="loadTasks()">Load Tasks</button>
+  <button onclick="removeTask()">Remove Task</button>
+  <button onclick="clearAll()">Clear All</button>
+  <button onclick="showKeys()">Show Keys & Count</button>
+
+  <h3>Tasks:</h3>
+  <div id="result"></div>
+  <h3>Storage Info:</h3>
+  <div id="keys"></div>
+
+  <script>
+    function saveTask() {
+      let task = document.getElementById("taskInput").value;
+      if (!task) {
+        alert("Please enter a task!");
+        return;
+      }
+      let key = "task_" + new Date().getTime();
+      localStorage.setItem(key, task);
+      alert("Task saved to local storage!");
+      document.getElementById("taskInput").value = "";
+    }
+
+    function loadTasks() {
+      let tasks = "";
+      for (let i = 0; i < localStorage.length; i++) {
+        let keyName = localStorage.key(i);
+        if (keyName.startsWith("task_")) {
+          let value = localStorage.getItem(keyName);
+          tasks += "• " + value + "<br>";
+        }
+      }
+      document.getElementById("result").innerHTML = tasks || "No tasks found!";
+    }
+
+    function removeTask() {
+      let task = document.getElementById("taskInput").value;
+      if (!task) {
+        alert("Enter the exact task name to remove!");
+        return;
+      }
+      let found = false;
+      for (let i = 0; i < localStorage.length; i++) {
+        let keyName = localStorage.key(i);
+        let value = localStorage.getItem(keyName);
+        if (value === task) {
+          localStorage.removeItem(keyName);
+          found = true;
+          alert("Task removed!");
+          break;
+        }
+      }
+      if (!found) {
+        alert("Task not found in storage!");
+      }
+      document.getElementById("taskInput").value = "";
+    }
+
+    function clearAll() {
+      localStorage.clear();
+      alert("All tasks cleared!");
+      document.getElementById("result").innerHTML = "";
+      document.getElementById("keys").innerHTML = "";
+    }
+
+    function showKeys() {
+      let keyLists = "";
+      for (let i = 0; i < localStorage.length; i++) {
+        let keyName = localStorage.key(i);
+        let value = localStorage.getItem(keyName);
+        keyLists += "key: " + keyName + " -> value: " + value + "<br>";
+      }
+      keyLists += "<br>Total items stored: " + localStorage.length;
+      document.getElementById("keys").innerHTML = keyLists;
+    }
+  </script>
+</body>
+</html>
